@@ -1,0 +1,22 @@
+externalId: wf_icapi_data_pipeline
+description: icream api data workflow
+
+tasks:
+  - id: extract_icapi_data
+    name: Extract ICAPI data
+    type: script
+    command: echo "Extracting data"
+
+  - id: transform_icapi_data
+    name: Transform ICAPI data
+    type: script
+    dependsOn:
+      - extract_icapi_data
+    command: echo "Transforming data"
+
+  - id: load_icapi_data
+    name: Load ICAPI data
+    type: script
+    dependsOn:
+      - transform_icapi_data
+    command: echo "Loading data"
